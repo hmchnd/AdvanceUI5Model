@@ -1,0 +1,18 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="accenture.demo.controller.Order"
+	xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Customer Orders">
+				<content>
+					<l:HorizontalLayout id="idSingleKPILayout" allowWrapping="true" content="{path:'CustomerModel>/ManageCustomer/SelectedCustomer/0/Orders'}">
+						<GenericTile header="{CustomerModel>OrderID}-{CustomerModel>ShipName}" class="sapUiSmallMarginBegin sapUiSmallMarginTop" frameType="TwoByOne"  press="onPress">
+							<TileContent footer="{CustomerModel>OrderDate}">
+								<NewsContent contentText="{CustomerModel>ShipAddress}-{CustomerModel>ShipCity}-{CustomerModel>ShipCountry}"/>
+							</TileContent>
+						</GenericTile>
+					</l:HorizontalLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

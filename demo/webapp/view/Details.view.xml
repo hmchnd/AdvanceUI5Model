@@ -1,0 +1,67 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m"
+	controllerName="accenture.demo.controller.Details" xmlns:html="http://www.w3.org/1999/xhtml" height="100%">
+	<ObjectPageLayout id="ObjectPageLayout">
+		<headerTitle>
+			<ObjectPageHeader objectTitle="Details Page"></ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<!--	<m:ObjectAttribute title="" text="This example explains the rules for the rendering of sections"/>-->
+		</headerContent>
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="Shipper Details">
+				<subSections>
+					<ObjectPageSubSection titleUppercase="false">
+						<blocks>
+							<m:Label text="{CustomerModel>/ManageCustomer/SelectedCustomer/0/selectedOrder/0/Shipper/ShipperID}"/>
+							<m:Label text="{CustomerModel>/ManageCustomer/SelectedCustomer/0/selectedOrder/0/Shipper/CompanyName}"/>
+							<m:Label text="{CustomerModel>/ManageCustomer/SelectedCustomer/0/selectedOrder/0/Shipper/Phone}"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" title="Order Description">
+				<subSections>
+					<ObjectPageSubSection titleUppercase="false">
+						<blocks>
+							<m:Table noDataText="No Data Connection" id="idCustomerTable" items="{CustomerModel>/ManageCustomer/SelectedCustomer/0/selectedOrder/0/OrderDetails}">
+								<m:items>
+									<m:ColumnListItem type="Active" press="onRowPress">
+										<m:cells>
+											<m:Label text="{CustomerModel>OrderID}"/>
+											<m:Label text="{CustomerModel>ProductID}"/>
+											<m:Label text="{CustomerModel>Quantity}"/>
+											<m:Label text="{CustomerModel>UnitPrice}"/>
+											<m:Label text="{CustomerModel>Discount}"/>
+										</m:cells>
+									</m:ColumnListItem>
+								</m:items>
+								<m:columns>
+									<m:Column>
+										<m:header>
+											<m:Label text="Order ID"/>
+										</m:header>
+									</m:Column>
+									<m:Column >
+										<m:header>
+											<m:Label text="Product ID"/>
+										</m:header>
+									</m:Column>
+									<m:Column >
+										<m:header>
+											<m:Label text="Quantity"/>
+										</m:header>
+									</m:Column>
+									<m:Column >
+										<m:header>
+											<m:Label text="Unit Prince"/>
+										</m:header>
+									</m:Column>
+								</m:columns>
+							</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>
