@@ -33,14 +33,9 @@ sap.ui.define([
 			}
 		},
 		getOrderBasedOnID: function (sOrderId) {
-			return this.Orders.find(function (oOrder) {
-				if (sOrderId === oOrder.OrderID) {
-					return oOrder;
-				} else {
-					return {};
-				}
+				return this.Orders.find(function (oOrder) {
+				return parseInt(sOrderId) === oOrder.OrderID;
 			});
-
 		},
 		populateOrder: function (aData, bMultilevelExpand) {
 			var that = this;
